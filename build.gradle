@@ -1,0 +1,31 @@
+plugins {
+    id("java")
+}
+
+group = "scanner.port"
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+}
+
+jar {
+    archivesBaseName = "PortScanner"
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes "Main-class": "scanner.port.portScanner"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } //fat jar
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
