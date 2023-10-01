@@ -25,7 +25,7 @@ public class ScanPorts {
             }
             catch(IOException e)
             {
-                System.out.println("Port " + port + "is closed");
+                System.out.println("Port " + port + " is closed");
             }
 
         }
