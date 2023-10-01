@@ -15,7 +15,7 @@ public class portScanner {
         System.out.println("Enter an ending port: ");
         int endPort = userInput.nextInt();
 
-
+        new ScanPorts().beginPortScan(targetHost,startPort,endPort);
 
     }
 
