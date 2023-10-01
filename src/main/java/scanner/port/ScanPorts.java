@@ -1,7 +1,9 @@
 package scanner.port;
 
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.io.IOException;
+import java.net.SocketAddress;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -19,7 +21,9 @@ public class ScanPorts {
         {
             try
             {
-                Socket socket = new Socket(targetHost, port);
+                Socket socket = new Socket();
+                SocketAddress socketAddress = new InetSocketAddress(targetHost,port);
+                socket.connect(socketAddress,10000); // 10 second timeout
                 System.out.println("Port " + port + " is open");
                 socket.close();
             }
