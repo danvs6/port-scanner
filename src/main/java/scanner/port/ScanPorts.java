@@ -20,12 +20,12 @@ public class ScanPorts {
             try
             {
                 Socket socket = new Socket(targetHost, port);
-                System.out.println("Port " + port + "is open");
+                System.out.println("Port " + port + " is open");
                 socket.close();
             }
             catch(IOException e)
             {
-                System.out.println("Port " + port + "is closed");
+                System.out.println("Port " + port + " is closed");
             }
 
         }
