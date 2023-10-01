@@ -23,7 +23,7 @@ public class ScanPorts {
             {
                 Socket socket = new Socket();
                 SocketAddress socketAddress = new InetSocketAddress(targetHost,port);
-                socket.connect(socketAddress,10000); // 10 second timeout
+                socket.connect(socketAddress,5000); // 5 second timeout
                 System.out.println("Port " + port + " is open");
                 socket.close();
             }
